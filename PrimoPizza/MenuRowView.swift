@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct MenuRowView: View {
+    var item: Int
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(alignment: .center, spacing: 20) {
+            if let image = UIImage(named: "\(item)_sm") {
+                Image(uiImage: image)
+            } else {
+                Image("surfboard_sm")
+            }
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Margherita")
+                Text("Description")
+                RatingsView(rating: 4)
+            }
+        }
+
     }
 }
 
 struct MenuRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuRowView()
+        MenuRowView(item: 1)
     }
 }

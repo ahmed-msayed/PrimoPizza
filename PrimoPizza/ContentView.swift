@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    var orders:[Int] = [1,2,3,4,5]
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            HeaderView()
+            OrderView(orders: orders)
+            MenuItemView()
+            MenuView()
+            Spacer()
         }
         .padding()
     }
@@ -22,5 +24,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        // .preferredColorScheme(.dark)
     }
 }
+
+

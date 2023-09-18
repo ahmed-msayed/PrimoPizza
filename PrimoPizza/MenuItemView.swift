@@ -9,7 +9,15 @@ import SwiftUI
 
 struct MenuItemView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if let image = UIImage(named: "0_lg") {
+                Image(uiImage: image)
+            } else {
+                Image("surfboard_lg")
+            }
+            Text("Margherita")
+            Text("Description")
+        }
     }
 }
 
