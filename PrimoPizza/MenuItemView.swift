@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuItemView: View {
+    @State var addedItem: Bool = false
     var body: some View {
         VStack {
             HStack {
@@ -16,14 +17,14 @@ struct MenuItemView: View {
                     .fontWeight(.semibold)
                     .padding(.leading, 10)
                     .foregroundStyle(.ultraThickMaterial)
-
+                
                 if let image = UIImage(named: "0_lg") {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
                         .cornerRadius(20)
                         .padding([.top, .bottom], 5)
-                        
+                    
                 } else {
                     Image("surfboard_lg")
                         .resizable()
@@ -41,6 +42,19 @@ struct MenuItemView: View {
                         .font(.custom("Georgia", size: 18, relativeTo: .body))
                 }
             }
+            HStack {
+                Button {
+                    addedItem = true
+                } label: {
+                    Text(12.99, format: .currency(code: "USD")).bold()
+                    Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(.red, in: Capsule())
+                .foregroundColor(.white)
+            }
+            .padding(5)
         }
     }
 }

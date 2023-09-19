@@ -14,6 +14,10 @@
 		E23D25412AB5EC84009D04A4 /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23D25402AB5EC84009D04A4 /* OrderRowView.swift */; };
 		E23D25432AB5EC96009D04A4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23D25422AB5EC96009D04A4 /* HeaderView.swift */; };
 		E2A7CAFA2AB705DD00A37D48 /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7CAF92AB705DD00A37D48 /* RatingsView.swift */; };
+		E2DCD98C2AB9DF3B00C3D8B9 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DCD9882AB9DF3B00C3D8B9 /* OrderModel.swift */; };
+		E2DCD98D2AB9DF3B00C3D8B9 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DCD9892AB9DF3B00C3D8B9 /* MenuItem.swift */; };
+		E2DCD98E2AB9DF3B00C3D8B9 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DCD98A2AB9DF3B00C3D8B9 /* OrderItem.swift */; };
+		E2DCD98F2AB9DF3B00C3D8B9 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DCD98B2AB9DF3B00C3D8B9 /* MenuModel.swift */; };
 		E2DF99CB2AB4E8BD0099C4DA /* PrimoPizzaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF99CA2AB4E8BD0099C4DA /* PrimoPizzaApp.swift */; };
 		E2DF99CD2AB4E8BD0099C4DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF99CC2AB4E8BD0099C4DA /* ContentView.swift */; };
 		E2DF99CF2AB4E8BE0099C4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DF99CE2AB4E8BE0099C4DA /* Assets.xcassets */; };
@@ -28,6 +32,10 @@
 		E23D25402AB5EC84009D04A4 /* OrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRowView.swift; sourceTree = "<group>"; };
 		E23D25422AB5EC96009D04A4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E2A7CAF92AB705DD00A37D48 /* RatingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
+		E2DCD9882AB9DF3B00C3D8B9 /* OrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		E2DCD9892AB9DF3B00C3D8B9 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		E2DCD98A2AB9DF3B00C3D8B9 /* OrderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		E2DCD98B2AB9DF3B00C3D8B9 /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		E2DF99C72AB4E8BD0099C4DA /* PrimoPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrimoPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DF99CA2AB4E8BD0099C4DA /* PrimoPizzaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimoPizzaApp.swift; sourceTree = "<group>"; };
 		E2DF99CC2AB4E8BD0099C4DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +54,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2DCD9872AB9DF3B00C3D8B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2DCD9882AB9DF3B00C3D8B9 /* OrderModel.swift */,
+				E2DCD9892AB9DF3B00C3D8B9 /* MenuItem.swift */,
+				E2DCD98A2AB9DF3B00C3D8B9 /* OrderItem.swift */,
+				E2DCD98B2AB9DF3B00C3D8B9 /* MenuModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E2DF99BE2AB4E8BD0099C4DA = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +93,7 @@
 				E23D253C2AB5EC61009D04A4 /* MenuItemView.swift */,
 				E23D253E2AB5EC72009D04A4 /* MenuRowView.swift */,
 				E2A7CAF92AB705DD00A37D48 /* RatingsView.swift */,
+				E2DCD9872AB9DF3B00C3D8B9 /* Model */,
 				E2DF99CE2AB4E8BE0099C4DA /* Assets.xcassets */,
 				E2DF99D02AB4E8BE0099C4DA /* Preview Content */,
 			);
@@ -160,11 +180,15 @@
 			files = (
 				E23D25392AB5EBA8009D04A4 /* OrderView.swift in Sources */,
 				E23D253B2AB5EBBB009D04A4 /* MenuView.swift in Sources */,
+				E2DCD98C2AB9DF3B00C3D8B9 /* OrderModel.swift in Sources */,
 				E2DF99CD2AB4E8BD0099C4DA /* ContentView.swift in Sources */,
 				E2DF99CB2AB4E8BD0099C4DA /* PrimoPizzaApp.swift in Sources */,
+				E2DCD98E2AB9DF3B00C3D8B9 /* OrderItem.swift in Sources */,
 				E2A7CAFA2AB705DD00A37D48 /* RatingsView.swift in Sources */,
 				E23D253F2AB5EC72009D04A4 /* MenuRowView.swift in Sources */,
 				E23D25412AB5EC84009D04A4 /* OrderRowView.swift in Sources */,
+				E2DCD98F2AB9DF3B00C3D8B9 /* MenuModel.swift in Sources */,
+				E2DCD98D2AB9DF3B00C3D8B9 /* MenuItem.swift in Sources */,
 				E23D253D2AB5EC61009D04A4 /* MenuItemView.swift in Sources */,
 				E23D25432AB5EC96009D04A4 /* HeaderView.swift in Sources */,
 			);
