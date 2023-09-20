@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct OrderRowView: View {
-    var order:Int
+    @Binding var order: OrderItem
     var body: some View {
         VStack {
             HStack {
-                Text("Your Order Item \(order)")
+                Text(order.item.name)
                 Spacer()
             }
             HStack {
-                Text("1 @")
-                Text(19.90, format: .currency(code: "USD"))
+                Text(order.quantity, format: .number)
+                Text(order.item.price, format: .currency(code: "USD"))
                 Spacer()
-                Text(19.90, format: .currency(code: "USD"))
+                Text(order.extPrice, format: .currency(code: "USD"))
                     .fontWeight(.semibold)
             }
         }
@@ -32,6 +32,6 @@ struct OrderRowView: View {
 
 struct OrderRowView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderRowView(order: 1)
+        OrderRowView(order: .constant(testOrderItem))
     }
 }

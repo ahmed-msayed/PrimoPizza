@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OrderView: View {
-    var orders:[Int]
+    @Binding var orders: [OrderItem]
     var body: some View {
         VStack {
 
@@ -29,13 +29,20 @@ struct OrderView: View {
             .cornerRadius(5)
             
             ScrollView {
-                ForEach(orders, id:\.self) { order in
+                ForEach($orders) { order in
                     OrderRowView(order: order)
                         .padding([.bottom, .top], 5)
                         .padding([.leading, .trailing], 7)
                 }
             }
             .padding(.top, 5)
+            
+            Button("Delete Order") {
+                if !orders.isEmpty { orders.removeLast() }
+            }
+            .padding(10)
+            .background(.regularMaterial, in:Capsule())
+            .padding(7)
         }
         .padding()
         .background(Color("Sky"))
@@ -44,6 +51,6 @@ struct OrderView: View {
 
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderView(orders: [1,2,3,4,5])
+        OrderView(orders: .constant(testOrders))
     }
 }
