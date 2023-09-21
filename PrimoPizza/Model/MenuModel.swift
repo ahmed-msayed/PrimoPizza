@@ -44,7 +44,7 @@ let data = """
           "description":"The classic pizza of Buffalo. Mozzarella, tomatoes, and basil on a Neopolitan crust",
           "crust":"Neopolitan",
           "price":12.99,
-          "rating":5
+          "rating":4
        },
     {
           "id":1,
@@ -53,7 +53,7 @@ let data = """
            "description": "A blend of Asiago, Parmesan, buffalo mozzarella, and Gorgonzola on a Neopolitan crust",
           "crust": "Neopolitan",
           "price":15.00,
-          "rating":6
+          "rating":5
        },
     {
           "id":2,
@@ -107,7 +107,7 @@ let data = """
             "description": "BBQ Chicken: Grilled chicken with barbecue sauce, red onions, and peppers on a Neopolitan crust",
             "crust": "Neopolitan",
           "price":15.00,
-          "rating":6
+          "rating":3
        },{
           "id":8,
           "category": "Huli Pizza Originals",
@@ -115,7 +115,7 @@ let data = """
             "description": "Huli Chicken: Our original Hawaiian street food pizza, with Huli Huli chicken, onions, ginger, crushed macadamia nuts, tomato sauce, and cheese on a classic crust.",
             "crust": "Neopolitan",
           "price":15.00,
-          "rating":6
+          "rating":5
        },
     {
           "id":9,
@@ -124,7 +124,7 @@ let data = """
             "description": "It may be from the mainland, but we make it our own. Pineapple, SPAM, cheese, onions, bean sprouts, and tomato sauce on a thin crust.",
             "crust": "New York",
           "price":13.00,
-          "rating":4
+          "rating":3
        },
     {
           "id":10,
@@ -133,7 +133,7 @@ let data = """
             "description": "Spam, Furikake, Nori on a bed of Sushi rice",
             "crust": "Musubi",
           "price":13.00,
-          "rating":3
+          "rating":2
        },
     {
           "id":11,

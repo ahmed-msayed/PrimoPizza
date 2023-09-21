@@ -9,16 +9,17 @@ import SwiftUI
 
 struct MenuItemView: View {
     @State var addedItem: Bool = false
+    @Binding var item: MenuItem
     var body: some View {
         VStack {
             HStack {
-                Text("Margherita Primo Pizza")
+                Text(item.name)
                     .font(.title)
                     .fontWeight(.semibold)
                     .padding(.leading, 10)
                     .foregroundStyle(.ultraThickMaterial)
                 
-                if let image = UIImage(named: "0_lg") {
+                if let image = UIImage(named: "\(item.id)_lg") {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
@@ -38,7 +39,7 @@ struct MenuItemView: View {
             
             VStack(alignment: .leading) {
                 ScrollView {
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id nisl lorem. Morbi convallis ex non velit condimentum consectetur. Nulla facilisi. Suspendisse scelerisque, elit fermentum facilisis gravida, turpis metus tincidunt purus, sit amet iaculis magna lacus eget risus. Proin at orci id felis euismod auctor non non ipsum. Suspendisse sollicitudin.")
+                    Text(item.description)
                         .font(.custom("Georgia", size: 18, relativeTo: .body))
                 }
             }
@@ -46,7 +47,7 @@ struct MenuItemView: View {
                 Button {
                     addedItem = true
                 } label: {
-                    Text(12.99, format: .currency(code: "USD")).bold()
+                    Text(item.price, format: .currency(code: "USD")).bold()
                     Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
                 }
                 .frame(maxWidth: .infinity)
@@ -61,6 +62,6 @@ struct MenuItemView: View {
 
 struct MenuItemView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemView()
+        MenuItemView(item: .constant(testMenuItem))
     }
 }
