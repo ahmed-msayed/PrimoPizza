@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuItemView: View {
     @State var addedItem: Bool = false
     @Binding var item: MenuItem
+    @ObservedObject var orders: OrderModel
     var body: some View {
         VStack {
             HStack {
@@ -46,10 +47,12 @@ struct MenuItemView: View {
             HStack {
                 Button {
                     addedItem = true
+                    orders.addOrder(item, quantity: 1)
                 } label: {
                     Text(item.price, format: .currency(code: "USD")).bold()
                     Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
                 }
+                .disabled(item.id < 0)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(.red, in: Capsule())
@@ -62,6 +65,6 @@ struct MenuItemView: View {
 
 struct MenuItemView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemView(item: .constant(testMenuItem))
+        MenuItemView(item: .constant(testMenuItem), orders: OrderModel())
     }
 }
