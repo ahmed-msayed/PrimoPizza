@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E22B9CDD2ABDAFF000EC0033 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22B9CDC2ABDAFF000EC0033 /* StatusBarView.swift */; };
 		E23D25392AB5EBA8009D04A4 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23D25382AB5EBA8009D04A4 /* OrderView.swift */; };
 		E23D253B2AB5EBBB009D04A4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23D253A2AB5EBBB009D04A4 /* MenuView.swift */; };
 		E23D253D2AB5EC61009D04A4 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23D253C2AB5EC61009D04A4 /* MenuItemView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E22B9CDC2ABDAFF000EC0033 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
 		E23D25382AB5EBA8009D04A4 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		E23D253A2AB5EBBB009D04A4 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E23D253C2AB5EC61009D04A4 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				E2DF99CA2AB4E8BD0099C4DA /* PrimoPizzaApp.swift */,
 				E2DF99CC2AB4E8BD0099C4DA /* ContentView.swift */,
 				E23D25422AB5EC96009D04A4 /* HeaderView.swift */,
+				E22B9CDC2ABDAFF000EC0033 /* StatusBarView.swift */,
 				E23D25382AB5EBA8009D04A4 /* OrderView.swift */,
 				E23D25402AB5EC84009D04A4 /* OrderRowView.swift */,
 				E23D253C2AB5EC61009D04A4 /* MenuItemView.swift */,
@@ -188,6 +191,7 @@
 				E23D253F2AB5EC72009D04A4 /* MenuRowView.swift in Sources */,
 				E23D25412AB5EC84009D04A4 /* OrderRowView.swift in Sources */,
 				E2DCD98F2AB9DF3B00C3D8B9 /* MenuModel.swift in Sources */,
+				E22B9CDD2ABDAFF000EC0033 /* StatusBarView.swift in Sources */,
 				E2DCD98D2AB9DF3B00C3D8B9 /* MenuItem.swift in Sources */,
 				E23D253D2AB5EC61009D04A4 /* MenuItemView.swift in Sources */,
 				E23D25432AB5EC96009D04A4 /* HeaderView.swift in Sources */,

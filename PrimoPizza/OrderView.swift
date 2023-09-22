@@ -9,19 +9,13 @@ import SwiftUI
 
 struct OrderView: View {
     @ObservedObject var orders: OrderModel
+    
     var body: some View {
         VStack {
-
             HStack {
-                Text("Order Pizza")
+                Text("Order List")
                     .font(.title)
                 Spacer()
-                Label{
-                    Text(orders.orderTotal, format: .currency(code: "USD"))
-                        .fontWeight(.bold)
-                } icon:{
-                    Image(systemName: orders.orderItems.isEmpty ? "cart" : "cart.fill")
-                }
             }
             .padding([.top, .bottom], 15)
             .padding([.leading, .trailing], 10)

@@ -12,22 +12,15 @@ struct ContentView: View {
     @StateObject var orders: OrderModel = OrderModel()
     @State private var showOrders: Bool = false
     @State private var selectedItem: MenuItem = noMenuItem
+    
     var body: some View {
         VStack {
             HeaderView()
                 .shadow(radius: 5)
+                //override light/dark modes output
+                .environment(\.colorScheme, .light)
             
-            HStack {
-                Text("\(orders.orderItems.count) orders")
-                Spacer()
-                Button {
-                    showOrders.toggle()
-                } label: {
-                    Image(systemName: showOrders ? "cart" : "menucard")
-                }
-            }
-            .font(.title)
-            .foregroundColor(.white)
+            StatusBarView(showOrders: $showOrders)
 
             if showOrders {
                 OrderView(orders: orders)
@@ -38,9 +31,11 @@ struct ContentView: View {
                     .background(.thinMaterial)
                     .cornerRadius(15)
                 MenuView(menu: menu, selectedItem: $selectedItem)
+                    .cornerRadius(20)
             }
             Spacer()
         }
+        .environmentObject(orders)
         .padding()
         .background(LinearGradient(colors: [.indigo, .cyan, .gray], startPoint: .top, endPoint: .bottom))
     }

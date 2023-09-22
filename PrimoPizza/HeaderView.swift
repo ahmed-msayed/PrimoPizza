@@ -8,17 +8,37 @@
 import SwiftUI
 
 struct HeaderView: View {
+    //to adjust header for landscape view
+    @Environment(\.verticalSizeClass) var vSizeClass: UserInterfaceSizeClass?
+    
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            Image("pizza-banner")
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(20)
-            Text("Primo Pizza")
-                .font(.custom("Georgia", size: 22, relativeTo: .title))
-                .padding(.trailing, 55)
-                .padding(.bottom, 15)
-                .foregroundColor(.white)
+        VStack {
+            if (vSizeClass ?? .regular) != .compact {
+                ZStack(alignment: .bottomTrailing) {
+                    Image("pizza-banner")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(20)
+                    Text("Primo Pizza")
+                        .font(.custom("Georgia", size: 22, relativeTo: .title))
+                        .padding(.trailing, 50)
+                        .padding(.bottom, 15)
+                        .foregroundStyle(.regularMaterial)
+                        .fontWeight(.semibold)
+                }
+            } else {
+                HStack(alignment: .center) {
+                    Image("pizza-banner")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(20)
+                    Text("Primo Pizza")
+                        .font(.custom("Georgia", size: 22, relativeTo: .title))
+                        .foregroundColor(.white)
+                        .background(.gray)
+                        .fontWeight(.heavy)
+                }
+            }
         }
     }
 }

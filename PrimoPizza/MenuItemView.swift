@@ -11,6 +11,7 @@ struct MenuItemView: View {
     @State var addedItem: Bool = false
     @Binding var item: MenuItem
     @ObservedObject var orders: OrderModel
+    
     var body: some View {
         VStack {
             HStack {
@@ -44,6 +45,7 @@ struct MenuItemView: View {
                         .font(.custom("Georgia", size: 18, relativeTo: .body))
                 }
             }
+            
             HStack {
                 Button {
                     addedItem = true
