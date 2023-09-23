@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject var orders: OrderModel = OrderModel()
     @State private var showOrders: Bool = false
     @State private var selectedItem: MenuItem = noMenuItem
+    @State private var showGridListButton: Bool = true
     
     var body: some View {
         VStack {
@@ -20,7 +21,7 @@ struct ContentView: View {
                 //override light/dark modes output
                 .environment(\.colorScheme, .light)
             
-            StatusBarView(showOrders: $showOrders)
+            StatusBarView(showOrders: $showOrders, showGridListButton: $showGridListButton)
 
             if showOrders {
                 OrderView(orders: orders)
@@ -30,8 +31,14 @@ struct ContentView: View {
                     .padding(5)
                     .background(.thinMaterial)
                     .cornerRadius(15)
-                MenuView(menu: menu, selectedItem: $selectedItem)
-                    .cornerRadius(20)
+                if showGridListButton {
+                    MenuView(menu: menu, selectedItem: $selectedItem)
+                        .cornerRadius(20)
+                } else {
+                    ScrollView {
+                        MenuGridView(menu: menu, selectedItem: $selectedItem)
+                    }
+                }
             }
             Spacer()
         }

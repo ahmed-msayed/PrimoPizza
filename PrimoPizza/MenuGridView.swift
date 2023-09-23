@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuGridView: View {
     var menu: [MenuItem]
-    @State var selectedItem: MenuItem = noMenuItem
+    @Binding var selectedItem: MenuItem
     let columnLayout = Array(repeating: GridItem(spacing: 40), count: 3)
     let favColumnLayout = Array(repeating: GridItem(), count: 5)
     @State private var favPizzaId: [Int] = [-1]
@@ -20,10 +20,13 @@ struct MenuGridView: View {
     
     var body: some View {
         VStack {
-            Text("Favorites").font(.title)
+            //Favourites
             LazyVGrid(columns: favColumnLayout) {
                 ForEach(favPizzaId.sorted(), id:\.self) { item in
                     FavoriteTileView(menuItem: menu(id: item))
+                        .onTapGesture {
+                            selectedItem = menu(id: item)
+                        }
                         .onLongPressGesture {
                             if let index = favPizzaId.firstIndex(where: {$0 == item}) {
                                 favPizzaId.remove(at: index)
@@ -31,10 +34,9 @@ struct MenuGridView: View {
                         }
                 }
             }
-            .padding()
+            .padding([.leading, .trailing])
             
-            Text("Pizzas").font(.title)
-            Text(selectedItem.name)
+            //All Pizzas
             ScrollView {
                 LazyVGrid(columns: columnLayout) {
                     ForEach(menu) { item in
@@ -42,9 +44,7 @@ struct MenuGridView: View {
                         if !favPizzaId.contains(item.id) {
                             MenuItemTileView(menuItem: item)
                                 .onTapGesture(count: 2) {
-                                    if !favPizzaId.contains(item.id) { //??
-                                        favPizzaId.append(item.id)
-                                    }
+                                    favPizzaId.append(item.id)
                                 }
                                 .onTapGesture {
                                     selectedItem = item
@@ -55,14 +55,15 @@ struct MenuGridView: View {
                         }
                     }
                 }
-                .padding()
+                .padding([.leading, .trailing])
             }
         }
+        .animation(.easeInOut, value: favPizzaId)
     }
 }
 
 struct MenuGridView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuGridView(menu: MenuModel().menu)
+        MenuGridView(menu: MenuModel().menu, selectedItem: .constant(testMenuItem))
     }
 }

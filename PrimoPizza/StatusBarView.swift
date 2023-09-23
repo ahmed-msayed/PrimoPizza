@@ -10,6 +10,7 @@ import SwiftUI
 struct StatusBarView: View {
     @EnvironmentObject var orders: OrderModel
     @Binding var showOrders: Bool
+    @Binding var showGridListButton: Bool
     
     var body: some View {
         HStack {
@@ -24,6 +25,14 @@ struct StatusBarView: View {
             } label: {
                 Image(systemName: showOrders ? "cart" : "menucard")
             }
+            if !showOrders {
+                Button {
+                    showGridListButton.toggle()
+                } label: {
+                    Image(systemName: showGridListButton ? "list.bullet" : "square.grid.3x2")
+                }
+                .padding(.leading, 5)
+            }
             Spacer()
             
             Label{
@@ -35,7 +44,6 @@ struct StatusBarView: View {
             .frame(maxWidth: 120)
             .lineLimit(1)
             .minimumScaleFactor(0.15)
-
         }
         .font(.title)
         .foregroundColor(.white)
@@ -44,7 +52,8 @@ struct StatusBarView: View {
 
 struct StatusBarView_Previews: PreviewProvider {
     static var previews: some View {
-        StatusBarView( showOrders: .constant(false))
+        StatusBarView(showOrders: .constant(false), showGridListButton: .constant(false))
             .environmentObject(OrderModel())
+            .background(Color.gray)
     }
 }
