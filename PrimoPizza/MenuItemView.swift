@@ -11,7 +11,9 @@ struct MenuItemView: View {
     @State var addedItem: Bool = false
     @Binding var item: MenuItem
     @ObservedObject var orders: OrderModel
-    @State var presentAlert: Bool = false
+    @State var presentSheet: Bool = false
+    @State private var newOrder: Bool = true
+    @State private var order = noOrderItem
     
     var body: some View {
         VStack {
@@ -49,7 +51,8 @@ struct MenuItemView: View {
             
             HStack {
                 Button {
-                    presentAlert = true
+                    order = OrderItem(id: -999, item: item)
+                    presentSheet = true
                 } label: {
                     Text(item.price, format: .currency(code: "USD")).bold()
                     Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
@@ -59,16 +62,10 @@ struct MenuItemView: View {
                 .padding()
                 .background(.red, in: Capsule())
                 .foregroundColor(.white)
-                .alert("Buy a \(item.name)", isPresented: $presentAlert) {
-                    Button("Yes") {
-                        addedItem = true
-                        orders.addOrder(item, quantity: 1)
-                    }
-                    Button("Make it a double!") {
-                        addedItem = true
-                        orders.addOrder(item, quantity: 2)
-                    }
-                    Button("No", role: .cancel){}
+                .sheet(isPresented: $presentSheet) {
+                    addedItem = true
+                } content: {
+                    OrderDetailView(orderItem: $order, presentSheet: $presentSheet, newOrder: $newOrder)
                 }
             }
             .padding(5)
