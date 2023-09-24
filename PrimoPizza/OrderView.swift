@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OrderView: View {
     @ObservedObject var orders: OrderModel
+    @State var presentDeleteAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -32,11 +33,19 @@ struct OrderView: View {
             .padding(.top, 5)
             
             Button("Delete Order") {
-                if !orders.orderItems.isEmpty { orders.removeLast() }
+                if !orders.orderItems.isEmpty {
+                    presentDeleteAlert = true
+                }
             }
             .padding(10)
             .background(.regularMaterial, in:Capsule())
             .padding(7)
+            .alert("Delete Order ?", isPresented: $presentDeleteAlert) {
+                Button("Yes") {
+                    if !orders.orderItems.isEmpty { orders.removeLast() }
+                }
+                Button("No", role: .cancel){}
+            }
         }
         .padding()
         .background(Color("Sky"))
