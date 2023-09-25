@@ -23,14 +23,32 @@ struct OrderView: View {
             .background(Color.mint)
             .cornerRadius(5)
             
-            ScrollView {
-                ForEach($orders.orderItems) { order in
-                    OrderRowView(order: order)
-                        .padding([.bottom, .top], 5)
-                        .padding([.leading, .trailing], 7)
-                }
+//            ScrollView {
+//                ForEach($orders.orderItems) { order in
+//                    OrderRowView(order: order)
+//                        .padding([.bottom, .top], 5)
+//                        .padding([.leading, .trailing], 7)
+//                }
+//            }
+//            .padding(.top, 5)
+            
+            NavigationStack{
+                    List($orders.orderItems){ $order in
+                        //Text(order.item.name)
+                        NavigationLink(value:order){
+                            OrderRowView(order: $order)
+                                .padding(4)
+                                .background(.regularMaterial,in:RoundedRectangle(cornerRadius: 10))
+                                .shadow(radius: 10)
+                                .padding(.bottom, 5)
+                                .padding([.leading,.trailing],7)
+                            
+                        }.navigationDestination(for: OrderItem.self) { order in
+                            OrderDetailUpdateView(orderItem: $order, presentSheet: .constant(false), newOrder: .constant(false))
+                        }.navigationTitle("Your Order")
+                    }
             }
-            .padding(.top, 5)
+            .padding(.top,70)
             
             Button("Delete Order") {
                 if !orders.orderItems.isEmpty {

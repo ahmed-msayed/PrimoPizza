@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject var orders: OrderModel = OrderModel()
     @State private var showOrders: Bool = false
     @State private var selectedItem: MenuItem = noMenuItem
+//    @State private var selectedItem2: MenuItem?
     @State private var showGridListButton: Bool = true
     
     var body: some View {
@@ -32,8 +33,19 @@ struct ContentView: View {
                     .background(.thinMaterial)
                     .cornerRadius(15)
                 if showGridListButton {
+                    //-------------------------
                     MenuView(menu: menu, selectedItem: $selectedItem)
                         .cornerRadius(20)
+//                    NavigationSplitView{
+//                        List(menu,selection:$selectedItem2){ item in
+//                            NavigationLink(value:item){
+//                                MenuRowView(item: item)
+//                            }
+//                        }
+//                    } detail:{
+//                        MenuDetailView(item: $selectedItem2)
+//                    }
+                    //------------------------------
                 } else {
                     ScrollView {
                         MenuGridView(menu: menu, selectedItem: $selectedItem)
